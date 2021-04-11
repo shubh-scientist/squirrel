@@ -34,26 +34,26 @@ class Squirrel(models.Model):
 
     X = models.DecimalField(
             help_text=_('Longitude coordinate for squirrel sighting point'),
-            max_digits=20,
-            decimal_places=15,
+            max_digits=30,
+            decimal_places=10,
             blank = True,
         )
 
     Y = models.DecimalField(
             help_text=_('Latitude coordinate for squirrel sighting point'),
-            max_digits =20,
-            decimal_places = 15,
+            max_digits =30,
+            decimal_places = 10,
             blank = True,
         )
     Unique_Squirrel_ID = models.CharField(
             help_text=_("Identification tag for each squirrel sightings. The tag is comprised of 'Hectare ID' + 'Shift' + 'Date' + 'Hectare Squirrel Number'"),
-            max_length=20,
+            max_length=50,
             primary_key = True,
         )
 
     Shift = models.CharField(
             help_text=_('Value is either "AM" or "PM" to communicate whether or not the sighting session occurred in the morning or late afternoon'),
-            max_length=10,
+            max_length=2,
             choices=TIME_CHOICES,
             blank = True,
         )
@@ -65,7 +65,7 @@ class Squirrel(models.Model):
 
     Age = models.CharField(
             help_text=_('Value is either "Adult" or "Juvenile"'),
-            max_length=15,
+            max_length=20,
             choices=AGE_CHOICES,
             blank=True,
         )
@@ -90,7 +90,7 @@ class Squirrel(models.Model):
             help_text=_('Value is either "Ground Plane" or "Above Ground"'),
             choices = LOCATION,
             blank = True,
-            max_length = 20,
+            max_length = 30,
         )
 
     Specific_Location = models.CharField(
@@ -125,7 +125,7 @@ class Squirrel(models.Model):
     Other_Activities = models.CharField(
             help_text=_('Any other activities squirrel was doing?'),
             blank=True,
-            max_length = 100,
+            max_length = 200,
         )
 
     Kuks = models.BooleanField(

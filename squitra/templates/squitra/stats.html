@@ -1,0 +1,52 @@
+<!doctype>
+<html>
+        <head>
+                <title> Stats </title>
+        </head>
+        <body>
+		<h1 align = 'center'> Sightings statistics</h1>
+		<p><a href ='/sightings'>Back</a></p>
+                <p>
+			<table border="1" align='center' style="width:30%">
+  				<tr>
+   			 		<th>Statistic</th>
+   			                <th>Count</th> 
+ 			        </tr>
+ 				 <tr>
+   					 <td>Total Squirrels</td>
+					 <td>{{ total_count }}</td> 
+ 				 </tr>
+				 <tr>
+                                         <td>Above Ground</td>
+                                         <td>{{ above_ground_count }}</td>
+                                </tr>
+ 				 <tr>
+   					 <td>Eating</td>
+					 <td>{{ eating_count }}</td> 
+ 				 </tr>
+				 <tr>
+					 <td>Running</td>
+					 <td>{{ running_count }}</td>
+				 </tr>
+				 <tr>
+					 <td>Climbing</td>
+					 <td>{{ climbing_count }}</td>
+				</tr>
+				<tr>
+                                         <td>Black Colored</td>
+                                         <td>{{ black_count }}</td>
+                                </tr>
+				<tr>
+                                         <td>Gray Colored</td>
+                                         <td>{{ gray_count }}</td>
+                                </tr>
+				<tr>
+                                         <td>Cinammon Colored</td>
+                                         <td>{{ cinnamon_count }}</td>
+                                </tr>
+
+
+			</table>
+                </p>
+        </body>
+</html>

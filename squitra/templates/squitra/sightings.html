@@ -1,0 +1,24 @@
+<!doctype>
+<html>
+        <head>
+                <title> Sightings</title>
+        </head>
+        <body>
+		<p><i><a href = '/'> Main page </a></i>></p>
+		<h1>Sightings List</h1>
+                <ol>
+                        <li><p> <a href = '/sightings/stats'> See statistics </a></p></li>
+                </ol>
+                <ol>
+                        <li><p> <a href = '/sightings/add'> Add a New Sighting </a> </p></li>
+                </ol>
+                <h2> Click to edit:</h2>
+                <p>
+                        <ol>
+                                {% for squirrel in squirrels %}
+				<li><a href = '/sightings/{{ squirrel.Unique_Squirrel_ID}}'>{{squirrel.Unique_Squirrel_ID}}</a></li>
+                                {% endfor %}
+                        </ol>
+                </p>
+        </body>
+</html> 

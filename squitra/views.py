@@ -7,3 +7,8 @@ def view_map(request):
             'sightings': sightings,
             }
     return render( request, 'squitra/map.html', context)
+
+def view_main(request):
+    return render(request,'squitra/main.html',)
+
+

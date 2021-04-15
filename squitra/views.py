@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Squirrel
+from django.http import HttpResponse
+from .forms import SquirForm
 
 def view_map(request):
     sightings = Squirrel.objects.all()[:100]
@@ -39,10 +41,31 @@ def stats_view(request):
     return render(request, 'squitra/stats.html', context)
 
 def update_squirrel_view(request,Unique_Squirrel_ID):
-    context = {'HI':'Hello'}
+    squirrel=Squirrel.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
+    if request.method=="POST":
+        form=SquirForm(request.POST, instance=squirrel)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings')
+
+    else:
+        form =SquirForm(instance=squirrel)
+    context={
+            'form':form
+        }
     return render(request,'squitra/edit.html',context)
 
 def add_squirrel_view(request):
-    context = {'HI':'Hello'}
+    if request.method=="POST":
+        form=SquirForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings')
+
+    else:
+        form=SquirForm()
+    context={
+            'form':form,
+        }
     return render(request,'squitra/edit.html',context)
 
